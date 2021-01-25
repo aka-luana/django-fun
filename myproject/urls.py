@@ -18,12 +18,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from accounts import views as accounts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pokemaoc/', include('pokemaoc.urls')),
-    path('signup/', accounts_views.signup, name='signup'),
+    url(r"^", include("users.urls")),
     # url(r'^signup/$', accounts_views.signup, name='signup'),
     # url('accounts/', accounts_views.signup, name='signup'),
 ]
