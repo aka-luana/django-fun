@@ -1,0 +1,36 @@
+Atividade de hoje:
+
+1) Todas os artigos de determinado reporter
+>>> articles_luana = Article.objects.filter(reporter__first_name='Luana') 
+>>> articles_luana
+<QuerySet [<Article: Artigo 3: Mundo JavaScrip>]>
+>>>
+
+2) Todos os artigos de entre 2019-2020
+>>> a = Article.objects.filter(pub_date__gte='2019-12-31')
+>>> a2 = a.exclude(pub_date__gte='2020-12-31')
+>>> a2
+<QuerySet [<Article: Artigo 1: Mundo Python>, <Article: Artigo 2: Mundo HTML e CSS>, <Article: Artigo 3: Mundo JavaScrip>, <Article: Artigo 4: A vida DEV>, <Article: Artigo 5: Suporte ou Teste?>, <Article: Artigo 8: Ciência de dados>]>
+>>>
+
+3) O reporter com mais artigos em 2020
+
+
+4) Artigos que contenham a palvra "python" e tenham sido publicados por determinado reporter em abril de 2015
+>>> qtd_pub = Article.objects.filter(headline__contains='python').filter(pub_date__year=2015, pub_date__month=4)
+>>> qtd_pub
+<QuerySet [<Article: Artigo 9: A chegada de python>]>
+>>>
+
+5) A quantidade de publicacoes que tenham 
+a letra "i"
+>>> qtd_pub_i = Publication.objects.filter(title__contains='i').count()
+>>> qtd_pub_i 
+10
+>>>
+
+6) A media de publicacoes por artigos
+>>> media = Publication.objects.count() / Article.objects.count()
+>>> media
+1.1111111111111112
+>>>
